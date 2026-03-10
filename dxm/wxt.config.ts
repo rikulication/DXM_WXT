@@ -1,11 +1,11 @@
 import { defineConfig } from 'wxt';
-import content from './entrypoints/content/content';
-
+import { UserConfig } from 'vite';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
+
   modules: ['@wxt-dev/module-vue'],
-  
-  entrypointsDir: "entrypoints/content",
+
+  entrypointsDir: "entrypoints",
   manifest: {
     host_permissions: [
       "*://*.aliexpress.com/*",
@@ -15,6 +15,13 @@ export default defineConfig({
       "storage",
       "tabs",
       "scripting"
+    ],
+    content_scripts: [
+      {
+        matches: ["*://*.dianxiaomi.com/*"],
+        js: ["dxm.js"]
+      }
     ]
-  }
+  },
+
 });
