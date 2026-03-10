@@ -9,7 +9,8 @@ export default defineConfig({
   manifest: {
     host_permissions: [
       "*://*.aliexpress.com/*",
-      "*://*.dianxiaomi.com/*"
+      "*://*.dianxiaomi.com/*",
+      "https://gitee.com/*"
     ],
     permissions: [
       "storage",

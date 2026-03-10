@@ -177,3 +177,17 @@ function $x(xpath, context = document) {
     res.snapshotItem(i),
   );
 }
+
+export function decrypt(cipher, key) {
+  const text = atob(cipher); // Base64解码
+  let result = "";
+
+  for (let i = 0; i < text.length; i++) {
+    const charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+    result += String.fromCharCode(charCode);
+  }
+
+  return result;
+}
+
+export const IHF = "DQ0JDg8OCQ8NBwgDCAEYAwQbAwsHBg8MCw0ICQMJDQw="
