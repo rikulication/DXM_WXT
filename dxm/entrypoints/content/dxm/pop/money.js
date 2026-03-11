@@ -1,6 +1,31 @@
-import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
 import $ from "jquery";
+import { showToast, waitForElement, sleep, createElementEx, waitForElementWithText } from "../../tool.js";
 export function money() {
+  function waitForElementWithObserver(selector, timeout = 10000) {
+    return new Promise((resolve, reject) => {
+      const target = document.body; // 监听整个 body 的 DOM 变化
+      const observer = new MutationObserver(() => {
+        const el = $(selector)[0];
+        if (el) {
+          observer.disconnect(); // 找到后停止监听
+          resolve(el);
+        }
+      });
+
+      observer.observe(target, {
+        childList: true, // 监听子节点变化
+        subtree: true, // 监听整个子树
+      });
+
+      // 超时控制
+      setTimeout(() => {
+        observer.disconnect();
+        reject(new Error(`元素 ${selector} 未出现`));
+      }, timeout);
+    });
+  }
+
+
   waitForElementWithText(
     "#productProductInfo .required",
     "零售价",

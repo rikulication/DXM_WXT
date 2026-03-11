@@ -1,4 +1,3 @@
-import $ from "jquery";
 
 export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -98,7 +97,7 @@ export function waitForElementWithObserver(selector, timeout = 10000) {
   return new Promise((resolve, reject) => {
     const target = document.body; // 监听整个 body 的 DOM 变化
     const observer = new MutationObserver(() => {
-      const el = $(selector)[0];
+      const el = document.querySelectorAll(selector)[0];
       if (el) {
         observer.disconnect(); // 找到后停止监听
         resolve(el);

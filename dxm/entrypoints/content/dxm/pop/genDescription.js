@@ -3,7 +3,6 @@ import { showToast, waitForElement, sleep, createElementEx, waitForElementWithOb
 
 export function gen() {
     waitForElement('input.ant-radio-input[value="new"]', () => {
-
         try {
             let p = document.querySelector('input.ant-radio-input[value="new"]')
                 .parentElement.parentElement;

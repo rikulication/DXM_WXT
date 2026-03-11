@@ -1,6 +1,8 @@
-import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
-
+import { showToast, waitForElement, sleep, createElementEx, waitForElementWithText } from "../../tool.js";
+import $ from "jquery";
 export async function color_select(att) {
+
+
   waitForElement(".ant-radio-group.ant-radio-group-outline", async () => {
     try {
       // 等待元素出现
@@ -72,5 +74,4 @@ export async function color_select(att) {
       }
     }
   })
-
 }
