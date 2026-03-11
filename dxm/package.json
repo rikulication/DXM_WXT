@@ -23,9 +23,11 @@
   },
   "devDependencies": {
     "@wxt-dev/module-vue": "^1.0.3",
+    "javascript-obfuscator": "^5.3.0",
     "terser": "^5.46.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
+    "vite-plugin-javascript-obfuscator": "^3.1.0",
     "vue-tsc": "^3.2.5",
     "wxt": "^0.20.18"
   }

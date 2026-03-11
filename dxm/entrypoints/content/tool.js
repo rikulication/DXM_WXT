@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -135,12 +137,12 @@ export function waitForElement(selector, callback) {
 
 
 export function triggerMouseEvent(el, type) {
-    const evt = new MouseEvent(type, {
-        bubbles: true,
-        cancelable: true,
-        view: window
-    });
-    el.dispatchEvent(evt);
+  const evt = new MouseEvent(type, {
+    bubbles: true,
+    cancelable: true,
+    view: window
+  });
+  el.dispatchEvent(evt);
 }
 
 export function $x(xpath, context = document) {
@@ -169,3 +171,21 @@ export function decrypt(cipher, key) {
 }
 
 export const IHF = "DQ0JDg8OCQ8NBwgDCAEYAwQbAwsHBg8MCw0ICQMJDQw="
+
+export function waitForElementWithText(selector, text, callback) {
+  const observer = new MutationObserver(() => {
+    const elements = document.querySelectorAll(selector);
+    for (const el of elements) {
+      if (el.textContent.includes(text)) {
+        observer.disconnect(); // 找到后停止监听
+        callback(el);
+        return;
+      }
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}

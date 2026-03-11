@@ -1,4 +1,6 @@
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver } from "../../tool.js";
+import $ from "jquery";
+
 export function addItemName() {
     waitForElement("#productProductInfo .attr-options", async () => {
         let positionEl = document.querySelector("#productProductInfo .video-operate");
