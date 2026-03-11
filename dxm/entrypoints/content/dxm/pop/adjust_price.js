@@ -1,10 +1,9 @@
-import $ from "jquery";
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver } from "../../tool.js";
 
 export async function adjust_price() {
   waitForElement("#adjustPriceInfo h4", () => {
     try {
-      let h4 = $("#adjustPriceInfo h4")[0];
+      let h4 = document.querySelectorAll("#adjustPriceInfo h4")[0];
 
       // 创建按钮
       let d_btn = createElementEx("button", {

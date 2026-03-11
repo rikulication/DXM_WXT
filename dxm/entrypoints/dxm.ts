@@ -6,7 +6,7 @@ import { addItemName } from './content/dxm/pop/addItemName.js';
 import { att } from './content/dxm/pop/att.js';
 import { deletePic } from './content/dxm/pop/deletePic.js';
 import { blankSku } from './content/dxm/pop/deleteSku.js';
-import { fill } from './content/dxm/pop/fill.js';
+// import { fill } from './content/dxm/pop/fill.js';
 import { gen } from './content/dxm/pop/genDescription.js';
 import { money } from './content/dxm/pop/money.js';
 import { popPrice } from './content/dxm/pop/price.js';
@@ -33,7 +33,7 @@ export default defineContentScript({
       att();
       deletePic();
       blankSku();
-      fill();
+      // fill();
       gen();
       money();
       popPrice();

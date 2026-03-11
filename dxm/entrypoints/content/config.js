@@ -1,5 +1,4 @@
 
-
 export async function get_config() {
   (async function () {
     window.f = {
@@ -9,9 +8,9 @@ export async function get_config() {
       // Tem4: "Template04.html",
       // Tem5: "Template05.html",
       config: "config.txt",
-      custom_css: "css/dxm.css"
-      // color: "color.txt",
-      // sku: "productInfo.txt",
+      // custom_css: "css/dxm.css"
+      color: "color.txt",
+      sku: "productInfo.txt",
     };
 
     async function loadFiles(fileMap) {
@@ -50,7 +49,7 @@ export async function get_config() {
       .filter((line) => line.trim() !== "");
     window.n = info[0].split(/[:：]/)[1];
     window.brand = info[2].split(/[:：]/)[1];
-    window.myStyle = data.custom_css;
+    // window.myStyle = data.custom_css;
 
 
   })();

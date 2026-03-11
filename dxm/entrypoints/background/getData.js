@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 export function getData() {
     function decrypt(cipher, key) {
         const text = atob(cipher); // Base64解码

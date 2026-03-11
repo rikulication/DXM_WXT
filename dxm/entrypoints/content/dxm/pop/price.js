@@ -1,6 +1,4 @@
-﻿import $ from "jquery";
-
-import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
+﻿import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
 
 export async function popPrice() {
     waitForElement(".ant-radio-group.ant-radio-group-outline", () => {

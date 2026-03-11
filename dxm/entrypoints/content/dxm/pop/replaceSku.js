@@ -1,5 +1,4 @@
-import $ from "jquery";
-import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
+import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText,$x } from "../../tool.js";
 
 // 替换将sku颜色简写
 export async function replaceSku() {
@@ -45,7 +44,7 @@ export async function replaceSku() {
     });
 
     // 插入按钮
-    let positionEl = $('button:contains("批量填充")')[0];
+    let positionEl = $x('//div[@id="productProductInfo"]//span[contains(text(),"批量填充")]')[0];
     positionEl.insertAdjacentElement("afterend", replace_sku);
   })
 

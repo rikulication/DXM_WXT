@@ -1,4 +1,3 @@
-import $ from "jquery";
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver } from "../../tool.js";
 
 export async function fill() {

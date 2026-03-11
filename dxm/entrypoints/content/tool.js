@@ -134,7 +134,6 @@ export function waitForElement(selector, callback) {
 }
 
 
-
 export function triggerMouseEvent(el, type) {
   const evt = new MouseEvent(type, {
     bubbles: true,

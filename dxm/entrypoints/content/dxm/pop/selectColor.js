@@ -1,5 +1,4 @@
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithText } from "../../tool.js";
-import $ from "jquery";
 export async function color_select(att) {
 
 
@@ -14,8 +13,8 @@ export async function color_select(att) {
         console.log(`该分类没有${att}元素`);
         return;
       }
-
-      const color_el = $(`#productProductInfo span:contains("${att}")`)[0]
+      
+      const color_el = $x(`//div[@id="productProductInfo"]//span[contains(text(),"${att}")]`)[0]
         .parentNode.parentNode.nextElementSibling;
 
       const check_box_color = color_el.querySelectorAll(
