@@ -1,9 +1,12 @@
 {
   "name": "wxt-vue-starter",
-  "description": "manifest.json description",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "manifest.json description",
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
@@ -15,6 +18,7 @@
     "postinstall": "wxt prepare"
   },
   "dependencies": {
+    "jquery": "^4.0.0",
     "vue": "^3.5.29"
   },
   "devDependencies": {

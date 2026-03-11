@@ -1,4 +1,4 @@
-function sleep(ms) {
+export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -20,7 +20,7 @@ function sleep(ms) {
  *        { target: HTMLElement, position: "beforebegin"|"afterbegin"|"beforeend"|"afterend" }
  * @returns {HTMLElement} 创建好的元素
  */
-function createElementEx(tagName, options = {}) {
+export function createElementEx(tagName, options = {}) {
   const el = document.createElement(tagName);
 
   if (options.className) el.className = options.className;
@@ -64,7 +64,7 @@ function createElementEx(tagName, options = {}) {
 
 
 
-function showToast(message, duration = 1500) {
+export function showToast(message, duration = 1500) {
   let toast = document.getElementById("toast-message");
   if (!toast) {
     toast = document.createElement("div");
@@ -92,7 +92,7 @@ function showToast(message, duration = 1500) {
   }, duration);
 }
 
-function waitForElementWithObserver(selector, timeout = 10000) {
+export function waitForElementWithObserver(selector, timeout = 10000) {
   return new Promise((resolve, reject) => {
     const target = document.body; // 监听整个 body 的 DOM 变化
     const observer = new MutationObserver(() => {
@@ -117,7 +117,7 @@ function waitForElementWithObserver(selector, timeout = 10000) {
 }
 
 
-function waitForElement(selector, callback) {
+export function waitForElement(selector, callback) {
   const observer = new MutationObserver(() => {
     const el = document.querySelector(selector);
     if (el) {
@@ -133,30 +133,8 @@ function waitForElement(selector, callback) {
 }
 
 
-(function inject() {
-  // 脚本清单（按顺序加载）
-  const scripts = [
-    "libs/jquery-3.7.1.min.js",
-  ];
 
-  function loadScriptsSequentially(list, index = 0) {
-    if (index >= list.length) return;
-
-    const script = document.createElement("script");
-    script.src = chrome.runtime.getURL(list[index]);
-    script.onload = () => {
-      script.remove();
-      loadScriptsSequentially(list, index + 1); // 加载下一个
-    };
-    (document.head || document.documentElement).appendChild(script);
-  }
-
-  loadScriptsSequentially(scripts);
-})();
-
-
-
-function triggerMouseEvent(el, type) {
+export function triggerMouseEvent(el, type) {
     const evt = new MouseEvent(type, {
         bubbles: true,
         cancelable: true,
@@ -165,7 +143,7 @@ function triggerMouseEvent(el, type) {
     el.dispatchEvent(evt);
 }
 
-function $x(xpath, context = document) {
+export function $x(xpath, context = document) {
   const res = document.evaluate(
     xpath,
     context,

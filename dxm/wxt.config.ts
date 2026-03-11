@@ -1,5 +1,4 @@
 import { defineConfig } from 'wxt';
-import { UserConfig } from 'vite';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
 
