@@ -10,8 +10,8 @@ import { blankSku } from './content/dxm/pop/deleteSku.js';
 import { gen } from './content/dxm/pop/genDescription.js';
 import { money } from './content/dxm/pop/money.js';
 import { popPrice } from './content/dxm/pop/price.js';
-// import { replaceSku } from './content/dxm/pop/replaceSku.js';
-// import { color_select } from './content/dxm/pop/selectColor.js';
+import { replaceSku } from './content/dxm/pop/replaceSku.js';
+import { color_select } from './content/dxm/pop/selectColor.js';
 
 export default defineContentScript({
   matches: ['*://www.dianxiaomi.com/*'],
@@ -37,8 +37,8 @@ export default defineContentScript({
       gen();
       money();
       popPrice();
-      // replaceSku();
-      // color_select();
+      replaceSku();
+      color_select();
     }
   },
 });
