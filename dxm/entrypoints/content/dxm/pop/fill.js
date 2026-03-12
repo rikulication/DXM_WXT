@@ -1,28 +1,21 @@
-import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver } from "../../tool.js";
+import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, $x } from "../../tool.js";
 
 export async function fill() {
     waitForElement("h4.form-card-title", () => {
         async function fill_template() {
-            $("#otherInfo .ant-radio-input")[0].click();
+            $x(`//div[@id="otherInfo"]//span[text()="不含关税报价"]`)[0].click();
             await sleep(100);
-            // 服务模板
-            $("#templateInfo input#form_item_promiseTemplateId").click();
+            $x(`//div[@id="templateInfo"]//label[@title="服务模板"]/ancestor::div[contains(@class,"ant-row")]//input`)[0].click();
             await sleep(100);
-            $(".rc-virtual-list .in-check-options").click();
+            $x(`//span[contains(text(),"Service Template for New Sellers")]`)[0].click();
             await sleep(100);
-
-            // 欧盟责任人
-            $("#otherInfo #form_item_msrEuId").click();
+            $x(`//div[@id="otherInfo"]//span[contains(text(),"欧盟责任人")]/ancestor::div[contains(@class,"ant-row")]//input`)[0].click();
             await sleep(100);
-            $(".in-check-options span:contains('Apex CE Specialists GmbH')").click();
+            $x(`//span[contains(text(),"Apex CE Specialists GmbH")]`)[0].click();
             await sleep(100);
-
-            // 品牌制造商
-            $("#otherInfo #form_item_manufactureId").click();
+            $x(`//div[@id="otherInfo"]//label[@title="品牌制造商"]/ancestor::div[contains(@class,"ant-row")]//input`)[0].click();
             await sleep(100);
-            $(
-                ".in-check-options span:contains('Wuhan Bosifan Electronic Commerce')"
-            ).click();
+            $x(`//div[contains(@title,"Wuhan Bosifan Electronic Commerce")]`)[0].click();
         }
 
 

@@ -1,9 +1,8 @@
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText,$x } from "../../tool.js";
 
 // 替换将sku颜色简写
-export async function replaceSku() {
+export async function replaceSku(colour) {
   waitForElement(".ant-radio-group.ant-radio-group-outline", async () => {
-    let colour = window.mycolor;
     let l = colour.split("\r\n");
     let color_map = {};
 
@@ -16,7 +15,7 @@ export async function replaceSku() {
 
     // 用 createElementEx 创建按钮
     let replace_sku = createElementEx("button", {
-      className: "mybtn mybtn-sm mybtn-outline-success mybtn-block",
+      className: "mybtn mybtn-sm mybtn-outline-success mybtn-block block",
       text: "替换所有SKU",
       myEvent: {
         click: () => {
@@ -44,7 +43,7 @@ export async function replaceSku() {
     });
 
     // 插入按钮
-    let positionEl = $x('//div[@id="productProductInfo"]//span[contains(text(),"批量填充")]')[0];
+    let positionEl = $x('//div[@id="productProductInfo"]//span[contains(text(),"批量填充")]/parent::button')[0];
     positionEl.insertAdjacentElement("afterend", replace_sku);
   })
 

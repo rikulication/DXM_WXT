@@ -18,25 +18,6 @@ export function gen() {
                 $x('//div[@class="ant-modal-body"]//span[contains(text(),"确")]')[0].click();
                 await sleep(2000);
                 $x('//div[@class="ant-modal-header"]//span[contains(text(),"保存")]')[0].click();
-
-
-                // $("span.link")
-                //     .filter(function () {
-                //         return $(this).text().trim() === "根据PC端描述一键生成";
-                //     })
-                //     .click();
-                // await sleep(500);
-                // $("button.ant-btn-primary")
-                //     .filter(function () {
-                //         return $(this).text().trim() === "确 定";
-                //     })
-                //     .click();
-                // await sleep(2000);
-                // $(".title-right button")
-                //     .filter(function () {
-                //         return $(this).text().trim() === "保存";
-                //     })
-                //     .click();
             });
             p.insertAdjacentElement("beforeend", new_btn);
         } catch (error) {

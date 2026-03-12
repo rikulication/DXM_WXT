@@ -389,3 +389,10 @@ margin:10px;
   margin-bottom: 8px;
 }
 
+.block{
+  display: block;
+}
+
+.choiceInput{
+  width: 100%;
+}

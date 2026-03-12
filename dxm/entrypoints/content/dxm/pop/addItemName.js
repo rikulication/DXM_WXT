@@ -6,7 +6,7 @@ export function addItemName() {
         // 创建输入框
         let fill_box = createElementEx("textarea", {
             parent: positionEl,
-            className: "input_att pop_fill",
+            className: "input_att pop_fill block",
             myEvent: {
                 input: (e) => {
                     let el = e.target;

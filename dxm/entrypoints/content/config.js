@@ -16,7 +16,7 @@ export async function get_config() {
     async function loadFiles(fileMap) {
       const entries = await Promise.all(
         Object.entries(fileMap).map(async ([key, path]) => {
-          const text = await (await fetch(chrome.runtime.getURL(path))).text();
+          const text = await (await fetch(browser.runtime.getURL(path))).text();
           return [key, text];
         })
       );
@@ -24,7 +24,8 @@ export async function get_config() {
     }
 
     const data = await loadFiles(f);
-
+    console.log(data);
+    
     setTimeout(() => {
       window.postMessage(
         {

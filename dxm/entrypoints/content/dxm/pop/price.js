@@ -1,10 +1,10 @@
-﻿import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText } from "../../tool.js";
+﻿import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText, $x } from "../../tool.js";
 
 export async function popPrice() {
     waitForElement(".ant-radio-group.ant-radio-group-outline", () => {
         // 折扣计算输入框
         let price_box = createElementEx("textarea", {
-            className: "input_att pop_price",
+            className: "input_att pop_price block",
             placeholder: "输入要计算折扣的价格",
             myEvent: {
                 input: (e) => {
@@ -87,7 +87,7 @@ export async function popPrice() {
         // copy_weight.disabled = true;
 
         let input_box = createElementEx("textarea", {
-            className: "input_att pop_price",
+            className: "input_att pop_price block",
             myEvent: {
                 input: (e) => {
                     let el = e.target;
@@ -117,12 +117,13 @@ export async function popPrice() {
             });
         // ========== 功能逻辑 ==========
         // 原箱
-        // package.addEventListener('click',()=>{
-        //     let s = document.querySelectorAll(`tbody tr select`)
-        //     for(let i of s){
-
-        //     }
-        // })
+        pack.addEventListener('click',async ()=>{
+            let s = $x(`//div[@id="productProductInfo"]//div[@id="skuEditTable"]//thead//option[contains(text(),"请选择")]/parent::select`)[0]
+            s.value = "1";
+            s.dispatchEvent(new Event("change", { bubbles: true }));
+            await sleep(100);
+            $x(`//div[@id="productProductInfo"]//div[@id="skuEditTable"]//thead//button/span[contains(text(),"批量填充")]`)[0].click()
+        })
 
         // 应用包装后尺寸
         size.addEventListener('click', () => {

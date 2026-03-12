@@ -27,7 +27,7 @@ export async function adjust_price() {
 
             if (!adjustPriceInfo.checked) {
               adjustPriceInfo.click();
-              await sleep(1500); // 等待取消全选动作完成
+              await sleep(1500);
               adjustPriceInfo.click();
             } else {
               adjustPriceInfo.click();

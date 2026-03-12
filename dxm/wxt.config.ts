@@ -51,8 +51,14 @@ export default defineConfig({
     ],
     content_scripts: [
       {
-        matches: ["*://*.dianxiaomi.com/*"],
+        matches: ["*://www.dianxiaomi.com/*"],
         js: ["dxm.js"]
+      }
+    ],
+    web_accessible_resources: [
+      {
+        resources: ["config.txt","color.txt","productInfo.txt"],
+        matches: ["*://www.dianxiaomi.com/*"]
       }
     ]
   },
