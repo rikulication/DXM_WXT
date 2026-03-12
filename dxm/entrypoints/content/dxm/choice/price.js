@@ -83,7 +83,7 @@ export function choicePrice() {
         myEvent: {
           click: () => {
             let weight_list = document.querySelectorAll(
-              `.variant-infornation td.p-8[style="text-align: center;"] input.ant-input`,
+              `//div[@class="variant-infornation"]//tbody/tr/td[count(ancestor::table//thead//th[.//span[normalize-space()="产品价格"]]/preceding-sibling::th)+2]//input`,
             );
             setTimeout(() => {
               weight_list.forEach((el) => {
