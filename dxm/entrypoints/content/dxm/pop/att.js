@@ -1,6 +1,6 @@
 ﻿import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver } from "../../tool.js";
 
-export function att() {
+export function att(userName,brand) {
 
     function getTodayDateString() {
         const now = new Date();
@@ -50,7 +50,7 @@ export function att() {
                 parent: p
             }); // 容器
             for (let i = 1; i <= 8; i++) {
-                let modelnum = window.n + getTodayDateString() + `0${i}` + window.brand;
+                let modelnum = userName + getTodayDateString() + `0${i}` + brand;
 
                 createElementEx("button", {
                     className: "mybtn mybtn-s mybtn-outline-info mleft",

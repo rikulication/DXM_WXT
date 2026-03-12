@@ -29,7 +29,7 @@ export default defineContentScript({
     browser.runtime.sendMessage({ type: "ENABLE_CSS" });
     const url = location.href;
     console.log(url);
-    
+
     // 获取本地配置
     const data: Record<string, any> = await local_data();
 
@@ -45,9 +45,16 @@ export default defineContentScript({
         .replace(/\r\n/g, "\n")
         .split("\n")
         .filter((line: any) => line.trim() !== "");
+
+      const info = data.config
+        .replace(/\r\n/g, "\n")
+        .replace(/\r/g, "\n")
+        .trim()
+        .split("\n")
+        .filter((line: any) => line.trim() !== "");
       addItemName();
       adjust_price();
-      att();
+      att(info[0].split(/[:：]/)[1], info[2].split(/[:：]/)[1]);
       deletePic();
       blankSku();
       fill();
@@ -62,7 +69,7 @@ export default defineContentScript({
       choiceDisplayWeiht()
       choiceMoney()
       choicePrice()
-      
+
     }
   },
 });

@@ -57,10 +57,17 @@ export default defineConfig({
     ],
     web_accessible_resources: [
       {
-        resources: ["config.txt","color.txt","productInfo.txt"],
+        resources: ["config.txt", "color.txt", "productInfo.txt"],
         matches: ["*://www.dianxiaomi.com/*"]
       }
-    ]
+    ],
+    icons: {
+      "16": "icon/128.png",
+      "32": "icon/128.png",
+      "48": "icon/128.png",
+      "96": "icon/128.png",
+      "128": "icon/128.png"
+    },
   },
 
 });

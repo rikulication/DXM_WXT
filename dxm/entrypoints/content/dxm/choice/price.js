@@ -45,9 +45,14 @@ export function choicePrice() {
         myEvent: {
           click: () => {
             let price = input_box.value.split(/[;；\s]+/).filter(Boolean);
-            let priceEl_list = document.querySelectorAll(
-              `.variant-infornation td.p-8:not([style]) .inp input[placeholder="请输入"]`,
-            );
+            let tr_list = document.querySelectorAll(`.variant-infornation tbody tr`)
+            let priceEl_list = []
+
+            for (let el of tr_list) {
+              const p_input = el.querySelector(`input`)
+              priceEl_list.push(p_input)
+            }
+
 
             if (priceEl_list.length !== price.length) {
               console.log("两者长度不一样");
@@ -142,7 +147,14 @@ export function choicePrice() {
         insertAdjacent: { target: positionEl, position: "beforebegin" },
         myEvent: {
           click: () => {
-            let price_list = Array.from(document.querySelectorAll(`.variant-infornation td.p-8:not([style]) .inp input[placeholder="请输入"]`)).map(el => el.value).join("\n")
+            let tr_list = document.querySelectorAll(`.variant-infornation tbody tr`)
+            let priceEl_list = []
+
+            for (let el of tr_list) {
+              const p_input = el.querySelector(`input`)
+              priceEl_list.push(p_input)
+            }
+            let price_list = Array.from(priceEl_list).map(el => el.value).join("\n")
             console.log(price_list);
             navigator.clipboard
               .writeText(price_list)
@@ -161,7 +173,7 @@ export function choicePrice() {
       console.log("按钮或输入框加载失败:", error);
     }
 
-    
+
 
 
   });
