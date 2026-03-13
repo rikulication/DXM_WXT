@@ -204,7 +204,7 @@ export function choicePrice() {
         },
       });
       const fill_num_btn = createElementEx("button", {
-        className: "mybtn mybtn-sm mybtn-rainbow jz",
+        className: "mybtn mybtn-sm mybtn-rainbow3 jz",
         text: "填充数量",
         myEvent: {
           click: () => {
@@ -238,7 +238,7 @@ export function choicePrice() {
       const title_btn = []
       div_title.forEach((title) => {
         const btn = createElementEx("button", {
-          className: "mybtn mybtn-sm mybtn-rainbow jz",
+          className: "mybtn mybtn-sm mybtn-rainbow2 jz",
           text: title,
           myEvent: {
             click: async () => {

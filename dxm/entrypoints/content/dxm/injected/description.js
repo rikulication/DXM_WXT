@@ -6,6 +6,14 @@ export function description() {
     (async () => {
         const data = await requestData();
         console.log("injected 收到 content 数据:", data);
+        const shopList = JSON.parse(data.config
+            .replace(/\r\n/g, "\n")
+            .replace(/\r/g, "\n")
+            .trim()
+            .split("\n")
+            .filter((line) => line.trim() !== "")[1].replace(/'/g, '"'))
+        
+
 
     })();
 }

@@ -463,6 +463,61 @@
   border: 1px solid #ff0055;
 }
 
+.mybtn-rainbow2 {
+  color: white;
+  border: none;
+  background: linear-gradient(270deg,
+      #2eb872,
+      #fa4659,
+      #a3de83,
+      #feffe4,
+      #2eb872,
+      #fa4659,
+      #a3de83,
+      #feffe4,
+      #2eb872,
+      #fa4659,
+      #a3de83,
+      #feffe4,
+      #2eb872);
+  background-size: 1400% 1400%;
+  animation: rainbowMove 15s linear infinite;
+}
+
+.mybtn-rainbow2:hover {
+  background: none;
+  background-color: transparent;
+  color: #ff0055;
+  border: 1px solid #ff0055;
+}
+
+.mybtn-rainbow3 {
+  color: white;
+  border: none;
+  background: linear-gradient(270deg,
+      #70a1d7,
+      #a1de93,
+      #f7f48b,
+      #f47c7c, #70a1d7,
+      #a1de93,
+      #f7f48b,
+      #f47c7c, #70a1d7,
+      #a1de93,
+      #f7f48b,
+      #f47c7c,
+      #70a1d7
+    );
+  background-size: 1400% 1400%;
+  animation: rainbowMove 15s linear infinite;
+}
+
+.mybtn-rainbow3:hover {
+  background: none;
+  background-color: transparent;
+  color: #ff0055;
+  border: 1px solid #ff0055;
+}
+
 @keyframes rainbowMove {
   0% {
     background-position: 0% 50%;
@@ -486,6 +541,6 @@
   grid-row: span 3;
 }
 
-.unit_box{
+.unit_box {
   height: auto;
 }
