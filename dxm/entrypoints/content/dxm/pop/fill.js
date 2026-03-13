@@ -1,7 +1,7 @@
 import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, $x } from "../../tool.js";
 
 export async function fill() {
-    waitForElement("h4.form-card-title", () => {
+    waitForElement("#productBasicInfo h4.form-card-title", () => {
         async function fill_template() {
             $x(`//div[@id="otherInfo"]//span[text()="不含关税报价"]`)[0].click();
             await sleep(100);
@@ -20,7 +20,7 @@ export async function fill() {
 
 
         try {
-            let parentEl = document.querySelector("h4.form-card-title");
+            let parentEl = document.querySelector("#productBasicInfo h4.form-card-title");
             createElementEx("button", {
                 className: "mybtn mybtn-info mybtn-sm",
                 html: "填充选项",

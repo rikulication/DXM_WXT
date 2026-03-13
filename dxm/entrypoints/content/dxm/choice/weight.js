@@ -1,11 +1,9 @@
 ﻿import { showToast, waitForElement, sleep, createElementEx, waitForElementWithObserver, waitForElementWithText, $x } from "../../tool.js";
 
 
-function choiceWeight() {
-  waitForElement(`h4.form-card-title.flex-y-cente`, () => {
-
-
-
+export function choiceWeight() {
+  waitForElement(`h4.form-card-title.flex-y-center`, () => {
+    
     try {
       let weight_text = `<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp n<100，小于<span style="color: red;">16g</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 100<=n<=300，小于<span style="color: red;">33g</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp n>=300，小于<span style="color: red;">50g</span></p>`;
       let country = document.querySelector(".country-list");
@@ -14,10 +12,9 @@ function choiceWeight() {
       );
 
       if (!country || !weight_parent) {
-        console.warn("未找到 country 或 weight_parent 元素");
+        console.log("未找到 country 或 weight_parent 元素");
         return;
       }
-
       // 提示文字
       let p = createElementEx("p", {
         html: weight_text,
@@ -65,6 +62,7 @@ function choiceWeight() {
               });
             }, 500);
           },
+          
         },
       });
     } catch (error) {

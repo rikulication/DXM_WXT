@@ -57,7 +57,15 @@ export default defineConfig({
     ],
     web_accessible_resources: [
       {
-        resources: ["config.txt", "color.txt", "productInfo.txt"],
+        resources: ["config.txt",
+          "color.txt",
+          "productInfo.txt",
+          "Template01.html",
+          "Template02.html",
+          "Template03.html",
+          "Template04.html",
+          "Template05.html",
+          "description.js"],
         matches: ["*://www.dianxiaomi.com/*"]
       }
     ],

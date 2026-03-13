@@ -1,10 +1,10 @@
 export async function local_data() {
     const files = {
-        // Tem1: "Template01.html",
-        // Tem2: "Template02.html",
-        // Tem3: "Template03.html",
-        // Tem4: "Template04.html",
-        // Tem5: "Template05.html",
+        Tem1: "Template01.html",
+        Tem2: "Template02.html",
+        Tem3: "Template03.html",
+        Tem4: "Template04.html",
+        Tem5: "Template05.html",
         config: "config.txt",
         color: "color.txt",
         sku: "productInfo.txt",
@@ -16,5 +16,6 @@ export async function local_data() {
         const text = await res.text();
         data[k] = text;
     }
+    
     return data
 }
