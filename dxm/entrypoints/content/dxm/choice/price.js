@@ -238,7 +238,7 @@ export function choicePrice() {
       const title_btn = []
       div_title.forEach((title) => {
         const btn = createElementEx("button", {
-          className: "mybtn mybtn-sm mybtn-rainbow2 jz",
+          className: "mybtn mybtn-sm mybtn-rainbow jz",
           text: title,
           myEvent: {
             click: async () => {

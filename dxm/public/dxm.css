@@ -468,27 +468,27 @@
   border: none;
   background: linear-gradient(270deg,
       #2eb872,
-      #fa4659,
+      #faa646,
       #a3de83,
-      #feffe4,
+      #18b6ff,
       #2eb872,
-      #fa4659,
+      #faa646,
       #a3de83,
-      #feffe4,
+      #18b6ff,
       #2eb872,
-      #fa4659,
+      #faa646,
       #a3de83,
-      #feffe4,
+      #18b6ff,
       #2eb872);
   background-size: 1400% 1400%;
-  animation: rainbowMove 15s linear infinite;
+  animation: rainbowMove 20s linear infinite;
 }
 
 .mybtn-rainbow2:hover {
   background: none;
   background-color: transparent;
-  color: #ff0055;
-  border: 1px solid #ff0055;
+  color: #0084ff;
+  border: 1px solid #0084ff;
 }
 
 .mybtn-rainbow3 {
@@ -505,8 +505,7 @@
       #a1de93,
       #f7f48b,
       #f47c7c,
-      #70a1d7
-    );
+      #70a1d7);
   background-size: 1400% 1400%;
   animation: rainbowMove 15s linear infinite;
 }
@@ -543,4 +542,17 @@
 
 .unit_box {
   height: auto;
+}
+
+.button_box {
+  width: auto;
+  height: auto;
+  padding-top: 10px;
+  margin-top: -40px;
+  margin-left: 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  flex-wrap: wrap;
+  /* 自动换行 */
 }

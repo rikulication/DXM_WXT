@@ -1,5 +1,4 @@
 export function inject() {
-    console.log("inject成功11111111111111111111111111");
     
     function injectScript(file) {
         const script = document.createElement("script");
@@ -8,7 +7,6 @@ export function inject() {
         script.type = "text/javascript";
         script.onload = () => script.remove(); // 注入后立即移除
         (document.head || document.documentElement).appendChild(script);
-        console.log("注入成功");
     }
 
     injectScript("description.js");

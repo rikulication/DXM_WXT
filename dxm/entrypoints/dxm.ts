@@ -13,6 +13,7 @@ import { replaceSku } from './content/dxm/pop/replaceSku.js';
 import { att_select } from './content/dxm/pop/selectColor.js';
 import { table } from './content/dxm/pop/table.js';
 import { displayWeight } from './content/dxm/pop/weight.js';
+import { size } from './content/dxm/pop/size.js';
 
 import { local_data } from './content/dxm/injected/local_data.js';
 
@@ -22,18 +23,15 @@ import { choiceMoney } from './content/dxm/choice/money.js';
 import { choicePrice } from './content/dxm/choice/price.js';
 import { choiceWeight } from './content/dxm/choice/weight.js';
 
-import { inject,sendData } from './content/dxm/pop/injectScript.js';
+import { inject, sendData } from './content/dxm/pop/injectScript.js';
 
 export default defineContentScript({
   matches: ['*://www.dianxiaomi.com/*'],
   async main() {
     let mm = await browser.runtime.sendMessage({ type: "HAHA" });
-    console.log(mm);
     if (decrypt(IHF, mm.draw) !== mm.trt) return
     browser.runtime.sendMessage({ type: "ENABLE_CSS" });
     const url = location.href;
-    console.log(url);
-
 
 
     // 商品管理页面
@@ -45,7 +43,6 @@ export default defineContentScript({
     if (['smt/edit', 'smt/add', 'smt/FullAndHalfEdit'].some(v => url.includes(v))) {
       // 获取本地配置
       const data: Record<string, any> = await retryLocalData(10, 300) ?? {};
-      console.log(data);
       const skuInfo = data.sku
         .replace(/\r\n/g, "\n")
         .split("\n")
@@ -72,6 +69,7 @@ export default defineContentScript({
       replaceSku(data.color);
       att_select(skuInfo);
       table();
+      size();
       displayWeight();
 
       choiceDisplayWeiht()

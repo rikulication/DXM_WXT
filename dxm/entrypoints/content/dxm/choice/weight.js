@@ -12,7 +12,6 @@ export function choiceWeight() {
       );
 
       if (!country || !weight_parent) {
-        console.log("未找到 country 或 weight_parent 元素");
         return;
       }
       // 提示文字

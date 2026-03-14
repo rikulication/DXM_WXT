@@ -76,6 +76,10 @@ export default defineConfig({
       "96": "icon/128.png",
       "128": "icon/128.png"
     },
+    action: {
+      default_popup: "index.html",
+    },
+    name: "DXM Tools",
+    description: "DXM Tools",
   },
-
 });
