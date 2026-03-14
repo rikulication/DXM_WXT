@@ -45,7 +45,7 @@ export function choicePrice() {
     ];
 
     async function sku() {
-      let icon = $(".iconfont.icon_send.f-blue-imp.pointer.m-left4");
+      let icon = document.querySelectorAll(".iconfont.icon_send.f-blue-imp.pointer.m-left4");
       for (let i = 1; i < icon.length; i++) {
         const el = icon[i];
         el.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
@@ -54,7 +54,9 @@ export function choicePrice() {
         el.dispatchEvent(new MouseEvent("mouseout", { bubbles: true }));
       }
       await sleep(500);
-      $('[data-menu-id="Code"] .ant-dropdown-menu-title-content').click();
+      document.querySelectorAll('[data-menu-id="Code"] .ant-dropdown-menu-title-content').forEach((el) => {
+        el.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      })
     }
     try {
       let positionEl = document.querySelector(".variant-infornation")
@@ -124,11 +126,16 @@ export function choicePrice() {
         text: "填充虚拟库存",
         myEvent: {
           click: () => {
-            let weight_list = $x(
-              `//div[@class="variant-infornation"]//tbody/tr/td[count(ancestor::table//thead//th[.//span[normalize-space()="产品价格"]]/preceding-sibling::th)+2]//input`,
-            );
+            let tr_list = document.querySelectorAll(`.variant-infornation tbody tr`)
+            let storageEl_list = []
+
+            for (let el of tr_list) {
+              const p_input_list = el.querySelectorAll(`input`)
+              const p_input = p_input_list[p_input_list.length - 1]
+              storageEl_list.push(p_input)
+            }
             setTimeout(() => {
-              weight_list.forEach((el) => {
+              storageEl_list.forEach((el) => {
                 el.value = 999;
                 el.dispatchEvent(new Event("input", { bubbles: true }));
               });
