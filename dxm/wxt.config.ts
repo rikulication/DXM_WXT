@@ -53,6 +53,10 @@ export default defineConfig({
       {
         matches: ["*://www.dianxiaomi.com/*"],
         js: ["dxm.js"]
+      },
+      {
+        matches: ["*://*.aliexpress.com/*"],
+        js: ["ali.js"]
       }
     ],
     web_accessible_resources: [

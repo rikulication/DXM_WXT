@@ -1,8 +1,9 @@
 import { decrypt, IHF } from './content/tool.js';
-
+import {dispute_list} from "./content/ali/dispute_list.js"
+import {orderDetail} from "./content/ali/orderDetail.js"
 
 export default defineContentScript({
-    matches: ['*://*.aliexpress.com/*'],
+    matches: ['https://csp.aliexpress.com/m_apps/*'],
     runAt: 'document_idle',
 
     main: async () => {
@@ -11,6 +12,11 @@ export default defineContentScript({
         if (decrypt(IHF, mm.draw) !== mm.trt) return
         browser.runtime.sendMessage({ type: "ENABLE_CSS" });
         const url = location.href;
-        
+        if(url.includes("dispute-management/list")){
+            dispute_list();
+        }
+        if(url.includes("order-manage/orderDetail")){
+            orderDetail();
+        }
     }
 })

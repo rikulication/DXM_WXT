@@ -2,7 +2,7 @@
 
 
 export function choiceWeight() {
-  waitForElement(`h4.form-card-title.flex-y-center`, () => {
+  waitForElement(`.variant-infornation`, () => {
     
     try {
       let weight_text = `<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp n<100，小于<span style="color: red;">16g</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 100<=n<=300，小于<span style="color: red;">33g</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp n>=300，小于<span style="color: red;">50g</span></p>`;
@@ -10,10 +10,6 @@ export function choiceWeight() {
       let weight_parent = document.querySelector(
         "h4.form-card-title.flex-y-center"
       );
-
-      if (!country || !weight_parent) {
-        return;
-      }
       // 提示文字
       let p = createElementEx("p", {
         html: weight_text,
